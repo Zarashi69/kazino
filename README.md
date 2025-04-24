@@ -1,1 +1,5 @@
-# kazino
+# Казино Даниила
+
+SPA на Next.js, неоновый дизайн, игры, лидерборд, профиль, промокоды и т.д.
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
