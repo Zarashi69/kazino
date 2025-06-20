@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="relative z-10 py-8 flex flex-col md:flex-row items-center justify-between w-full max-w-5xl mx-auto neon-border neon-glow rounded-2xl bg-[#1a003a]/80 mt-16 mb-8 px-6 gap-4 overflow-hidden animate-shimmer">
+    <footer className="w-full py-2 sm:py-4 px-2 sm:px-6 flex flex-col sm:flex-row items-center justify-between bg-[#0f0026]/80 neon-border-t neon-glow text-xs sm:text-base gap-1 sm:gap-4">
       <div className="flex items-center gap-3">
         <span className="text-2xl neon-text animate-pulse">🎰</span>
         <span className="font-bold text-lg">Казино Даниила</span>

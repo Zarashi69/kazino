@@ -55,28 +55,28 @@ const games = [
 export default function GameSection() {
   const router = useRouter();
   return (
-    <section id="games" className="relative z-10 py-16 md:py-24 flex flex-col items-center">
-      <h2 className="neon-text text-3xl md:text-5xl font-bold mb-10 text-center">Игры</h2>
-      <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="games" className="relative z-10 py-8 sm:py-16 md:py-24 flex flex-col items-center">
+      <h2 className="neon-text text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-10 text-center">Игры</h2>
+      <div className="w-full max-w-2xl sm:max-w-4xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
         {games.map((game, i) => (
           <motion.div
             key={game.key}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1, duration: 0.6 }}
-            className="relative neon-border neon-glow rounded-3xl bg-[#1a003a]/80 p-8 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-200 group overflow-hidden animate-shimmer"
+            className="relative neon-border neon-glow rounded-2xl sm:rounded-3xl bg-[#1a003a]/80 p-4 sm:p-8 shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-200 group overflow-hidden animate-shimmer min-w-0"
           >
-            <div className="absolute -top-4 right-4 px-4 py-1 bg-neon-blue text-white text-xs font-bold rounded-b-xl neon-glow animate-pulse">NEW</div>
-            <div className="mb-4">{game.icon}</div>
-            <div className="text-2xl font-bold neon-text mb-2 drop-shadow-lg flicker">{game.title}</div>
-            <div className="text-neon-blue text-lg mb-4 text-center">{game.desc}</div>
+            <div className="absolute -top-3 sm:-top-4 right-2 sm:right-4 px-2 sm:px-4 py-0.5 sm:py-1 bg-neon-blue text-white text-xs font-bold rounded-b-xl neon-glow animate-pulse">NEW</div>
+            <div className="mb-2 sm:mb-4">{game.icon}</div>
+            <div className="text-lg sm:text-2xl font-bold neon-text mb-1 sm:mb-2 drop-shadow-lg flicker">{game.title}</div>
+            <div className="text-neon-blue text-base sm:text-lg mb-2 sm:mb-4 text-center">{game.desc}</div>
             <button
-              className="neon-btn px-8 py-3 text-lg font-bold mt-auto shadow-lg group-hover:scale-110 transition"
+              className="neon-btn px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-bold mt-auto shadow-lg group-hover:scale-110 transition"
               onClick={() => router.push(`/play/${game.key}`)}
             >
               Играть
             </button>
-            <div className="absolute left-0 bottom-0 w-full h-2 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-green opacity-40 blur-lg animate-pulse" />
+            <div className="absolute left-0 bottom-0 w-full h-1 sm:h-2 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-green opacity-40 blur-lg animate-pulse" />
           </motion.div>
         ))}
       </div>

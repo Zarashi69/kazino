@@ -112,22 +112,22 @@ export default function ProfilePage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center py-16 px-4 bg-gradient-to-br from-[#0f0026] via-[#1a003a] to-[#0a001a]">
-      <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="w-full max-w-xl neon-border neon-glow rounded-3xl bg-[#1a003a]/80 p-8 shadow-2xl">
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
-          <div className="text-6xl">{user.avatar || '🦁'}</div>
+      <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="w-full max-w-xl neon-border neon-glow rounded-3xl bg-[#1a003a]/80 p-4 sm:p-6 md:p-8 shadow-2xl">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+          <div className="text-4xl sm:text-6xl">{user.avatar || '🦁'}</div>
           <div>
-            <div className="text-2xl font-bold neon-text mb-1">{user.name}</div>
-            <div className="text-neon-blue text-lg mb-2">{user.email}</div>
-            <div className="text-neon-green text-xl font-mono">Баланс: {user.balance.toLocaleString('ru-RU')} ₴</div>
+            <div className="text-xl sm:text-2xl font-bold neon-text mb-1">{user.name}</div>
+            <div className="text-neon-blue text-base sm:text-lg mb-2">{user.email}</div>
+            <div className="text-neon-green text-lg sm:text-xl font-mono">Баланс: {user.balance.toLocaleString('ru-RU')} ₴</div>
           </div>
         </div>
-        <div className="mb-8">
-          <div className="text-lg font-semibold neon-text mb-2">Выбери аватар</div>
-          <div className="grid grid-cols-7 gap-2 mb-4 max-h-32 overflow-y-auto neon-border neon-glow p-2 bg-[#0f0026]/60 rounded-xl">
+        <div className="mb-6 sm:mb-8">
+          <div className="text-base sm:text-lg font-semibold neon-text mb-2">Выбери аватар</div>
+          <div className="grid grid-cols-6 sm:grid-cols-7 gap-1 sm:gap-2 mb-2 sm:mb-4 max-h-24 sm:max-h-32 overflow-y-auto neon-border neon-glow p-1 sm:p-2 bg-[#0f0026]/60 rounded-xl">
             {['🦁','🐯','🐲','🦊','🐸','🐵','🐼','🦄','🐺','🐻','🐮','🐷','🐰','🐔','🐙','🦖','👽','🤖','💀','👾'].map(a => (
               <button
                 key={a}
-                className={`text-2xl md:text-3xl p-1 md:p-2 rounded-xl border-2 ${user.avatar === a ? 'border-neon-pink neon-glow scale-110' : 'border-transparent'} bg-[#0f0026]/70 hover:scale-125 transition-all duration-150`}
+                className={`text-lg sm:text-2xl md:text-3xl p-0.5 sm:p-1 md:p-2 rounded-xl border-2 ${user.avatar === a ? 'border-neon-pink neon-glow scale-110' : 'border-transparent'} bg-[#0f0026]/70 hover:scale-110 sm:hover:scale-125 transition-all duration-150`}
                 onClick={() => setAvatar(a)}
                 type="button"
                 aria-label={`Выбрать аватар ${a}`}
@@ -135,9 +135,9 @@ export default function ProfilePage() {
             ))}
           </div>
         </div>
-        <div className="mb-8">
-          <div className="text-lg font-semibold neon-text mb-2">Ачивки</div>
-          <div className="flex flex-wrap gap-3">
+        <div className="mb-6 sm:mb-8">
+          <div className="text-base sm:text-lg font-semibold neon-text mb-2">Ачивки</div>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             <AnimatePresence>
               {user.achievements.length === 0 && <span className="text-neon-blue animate-pulse">Нет ачивок</span>}
               {user.achievements.map((ach, i) => {
@@ -149,9 +149,9 @@ export default function ProfilePage() {
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ delay: i * 0.1, duration: 0.4 }}
-                    className="px-4 py-2 rounded-xl bg-[#0f0026]/80 neon-border neon-glow text-neon-yellow font-bold text-base shadow-md flicker animate-shimmer flex items-center gap-2"
+                    className="px-2 sm:px-4 py-1 sm:py-2 rounded-xl bg-[#0f0026]/80 neon-border neon-glow text-neon-yellow font-bold text-xs sm:text-base shadow-md flicker animate-shimmer flex items-center gap-1 sm:gap-2"
                   >
-                    <span className="text-xl md:text-2xl drop-shadow-lg">{meta.icon}</span>
+                    <span className="text-lg sm:text-xl md:text-2xl drop-shadow-lg">{meta.icon}</span>
                     <span>{meta.label}</span>
                   </motion.div>
                 )
@@ -159,29 +159,29 @@ export default function ProfilePage() {
             </AnimatePresence>
           </div>
         </div>
-        <div className="mb-8">
-          <div className="text-lg font-semibold neon-text mb-2">История транзакций</div>
-          <div className="max-h-48 overflow-y-auto flex flex-col gap-2">
+        <div className="mb-6 sm:mb-8">
+          <div className="text-base sm:text-lg font-semibold neon-text mb-2">История транзакций</div>
+          <div className="max-h-32 sm:max-h-48 overflow-y-auto flex flex-col gap-1 sm:gap-2">
             {user.history.length === 0 && <span className="text-neon-blue animate-pulse">Нет транзакций</span>}
             {user.history.map((tx, i) => (
-              <motion.div key={tx.id} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05, duration: 0.3 }} className={`flex justify-between items-center px-4 py-2 rounded-xl bg-[#0f0026]/70 neon-border neon-glow shadow-md ${tx.type === 'win' ? 'text-neon-green' : tx.type === 'lose' ? 'text-neon-pink' : 'text-neon-yellow'} animate-shimmer`}> 
-                <span>{tx.desc}</span>
+              <motion.div key={tx.id} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05, duration: 0.3 }} className={`flex justify-between items-center px-2 sm:px-4 py-1 sm:py-2 rounded-xl bg-[#0f0026]/70 neon-border neon-glow shadow-md ${tx.type === 'win' ? 'text-neon-green' : tx.type === 'lose' ? 'text-neon-pink' : 'text-neon-yellow'} animate-shimmer text-xs sm:text-base`}> 
+                <span className="truncate max-w-[60px] sm:max-w-[120px]">{tx.desc}</span>
                 <span>{tx.amount > 0 ? '+' : ''}{tx.amount} ₴</span>
                 <span className="text-xs text-neon-blue">{tx.date}</span>
               </motion.div>
             ))}
           </div>
         </div>
-        <div className="mb-6">
-          <div className="text-lg font-semibold neon-text mb-2">Промокод</div>
-          <div className="flex gap-2">
-            <input type="text" value={promo} onChange={e => setPromo(e.target.value)} placeholder="Введите промокод" className="neon-border rounded-xl px-4 py-2 bg-[#0f0026]/70 text-white outline-none" />
-            <button className="neon-btn px-4 py-2 font-bold" onClick={handlePromo}>Активировать</button>
+        <div className="mb-4 sm:mb-6">
+          <div className="text-base sm:text-lg font-semibold neon-text mb-2">Промокод</div>
+          <div className="flex gap-1 sm:gap-2 flex-col sm:flex-row">
+            <input type="text" value={promo} onChange={e => setPromo(e.target.value)} placeholder="Введите промокод" className="neon-border rounded-xl px-2 sm:px-4 py-1 sm:py-2 bg-[#0f0026]/70 text-white outline-none text-xs sm:text-base" />
+            <button className="neon-btn px-2 sm:px-4 py-1 sm:py-2 font-bold text-xs sm:text-base" onClick={handlePromo}>Активировать</button>
           </div>
-          {promoResult && <div className={`mt-2 text-center text-lg font-bold ${promoResult.includes('активирован') ? 'text-neon-green' : 'text-neon-pink'}`}>{promoResult}</div>}
+          {promoResult && <div className={`mt-2 text-center text-xs sm:text-lg font-bold ${promoResult.includes('активирован') ? 'text-neon-green' : 'text-neon-pink'}`}>{promoResult}</div>}
         </div>
-        <button className="neon-btn w-full py-3 text-lg font-bold mt-4" onClick={() => { logout(); router.push('/') }}>Выйти</button>
-        <button className="neon-btn w-full py-3 text-lg font-bold mt-4 animate-pulse" onClick={() => router.push('/')}>На главную</button>
+        <button className="neon-btn w-full py-2 sm:py-3 text-xs sm:text-lg font-bold mt-2 sm:mt-4" onClick={() => { logout(); router.push('/') }}>Выйти</button>
+        <button className="neon-btn w-full py-2 sm:py-3 text-xs sm:text-lg font-bold mt-2 sm:mt-4 animate-pulse" onClick={() => router.push('/')}>На главную</button>
       </motion.div>
     </main>
   )

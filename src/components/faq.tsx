@@ -13,9 +13,9 @@ const faqs = [
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
   return (
-    <section id="faq" className="relative z-10 py-16 md:py-24 flex flex-col items-center animate-shimmer">
-      <h2 className="neon-text text-3xl md:text-5xl font-bold mb-10 text-center">FAQ</h2>
-      <div className="w-full max-w-2xl mx-auto flex flex-col gap-4">
+    <section className="relative z-10 py-8 sm:py-16 md:py-24 flex flex-col items-center">
+      <h2 className="neon-text text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-10 text-center">FAQ</h2>
+      <div className="w-full max-w-md sm:max-w-2xl flex flex-col gap-2 sm:gap-4">
         {faqs.map((f, i) => (
           <motion.div
             key={i}
