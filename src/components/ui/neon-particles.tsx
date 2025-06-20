@@ -21,7 +21,7 @@ export default function NeonParticles() {
         fullScreen: { enable: false },
         background: { color: 'transparent' },
         particles: {
-          number: { value: 60, density: { enable: true, area: 800 } },
+          number: { value: 60, density: { enable: true } },
           color: { value: ['#ff00cc', '#00eaff', '#39ff14', '#fff700', '#a259ff'] },
           shape: { type: 'circle' },
           opacity: { value: 0.25 },
@@ -30,7 +30,7 @@ export default function NeonParticles() {
           shadow: { enable: true, color: '#ff00cc', blur: 8 },
         },
         interactivity: {
-          events: { onHover: { enable: true, mode: 'repulse' }, resize: true },
+          events: { onHover: { enable: true, mode: 'repulse' }, resize: { enable: true } },
           modes: { repulse: { distance: 80, duration: 0.4 } },
         },
         detectRetina: true,
