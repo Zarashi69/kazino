@@ -22,20 +22,20 @@ export default function HeaderBar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-3 bg-[#0f0026]/80 backdrop-blur-md neon-border neon-glow shadow-lg">
-      <div className="flex items-center gap-3 cursor-pointer" onClick={() => router.push('/') }>
-        <span className="text-2xl neon-text">🎲</span>
-        <span className="font-bold text-xl md:text-2xl neon-text flicker">Казино Даниила</span>
+    <header className="sticky top-0 left-0 w-full z-50 flex flex-col sm:flex-row items-center justify-between px-2 sm:px-6 py-2 sm:py-3 bg-[#0f0026]/80 backdrop-blur-md neon-border neon-glow shadow-lg gap-1 sm:gap-0 min-w-0">
+      <div className="flex items-center gap-2 sm:gap-3 cursor-pointer min-w-0" onClick={() => router.push('/') }>
+        <span className="text-xl sm:text-2xl neon-text">🎲</span>
+        <span className="font-bold text-base sm:text-xl md:text-2xl neon-text flicker truncate">Казино Даниила</span>
       </div>
-      <div className="flex items-center gap-6">
-        <div className="flex items-center gap-2 text-lg md:text-xl">
+      <div className="flex items-center gap-2 sm:gap-6 overflow-x-auto w-full sm:w-auto py-1 sm:py-0 min-w-0 justify-center sm:justify-end">
+        <div className="flex items-center gap-1 sm:gap-2 text-sm sm:text-lg md:text-xl min-w-0">
           <span className="text-neon-blue">Баланс:</span>
-          <span className="text-neon-green font-mono font-bold">{user ? user.balance.toLocaleString() : '—'} ₴</span>
+          <span className="text-neon-green font-mono font-bold truncate">{user ? user.balance.toLocaleString() : '—'} ₴</span>
         </div>
-        <button className="neon-btn px-5 py-2 text-lg font-bold" onClick={() => router.push('/play/crash')}>Старт</button>
-        <button className="neon-btn px-5 py-2 text-lg font-bold" onClick={() => router.push('/profile')}>Профиль</button>
-        <button className="neon-btn px-4 py-2 text-lg font-bold flex items-center gap-2" onClick={() => setPromoOpen(true)} title="Промокод">
-          <span className="text-xl">🎁</span>
+        <button className="neon-btn px-3 sm:px-5 py-1 sm:py-2 text-sm sm:text-lg font-bold" onClick={() => router.push('/play/crash')}>Старт</button>
+        <button className="neon-btn px-3 sm:px-5 py-1 sm:py-2 text-sm sm:text-lg font-bold" onClick={() => router.push('/profile')}>Профиль</button>
+        <button className="neon-btn px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-lg font-bold flex items-center gap-1 sm:gap-2" onClick={() => setPromoOpen(true)} title="Промокод">
+          <span className="text-lg sm:text-xl">🎁</span>
         </button>
         <NeonThemeSwitcher />
       </div>
